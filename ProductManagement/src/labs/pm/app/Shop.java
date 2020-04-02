@@ -3,10 +3,12 @@ package labs.pm.app;
 
 import labs.pm.data.*;
 
+import java.lang.ref.PhantomReference;
 import java.math.BigDecimal;
-import java.time.LocalDate;
+import java.util.Comparator;
+import java.util.Locale;
 
-//TODO: slajd ..., lekcja 7: ...
+//TODO: slajd 202, lekcja 11
 
 /**
  *
@@ -20,33 +22,45 @@ public class Shop {
      * @param args witch is not used yet
      */
     public static void main(String[] args) {
-        ProductManager pm = new ProductManager();
-        Product p1 = pm.createProduct(101, "Tea", BigDecimal.valueOf(1.99), Rating.THREE_STARS);
+        ProductManager pm = new ProductManager("en-GB");
+        //check by lambda if product1 rating > product2 rating AVERAGE!!!  from the heighest value to the lowest one
+        Comparator <Product> ratingSorter = ((p1, p2) -> p2.getRating().ordinal() - p1.getRating().ordinal());
 
-        System.out.println(p1);
+        //sort by price - BigDecimal, so comapreTo method
+        Comparator <Product> priceSorter = ((p1, p2)-> p2.getPrice().compareTo(p1.getPrice()));
 
-        Product p2 = pm.createProduct(102, "Coffee", BigDecimal.valueOf(1.99), Rating.FOUR_STARS);
-        Product p3 = pm.createProduct(103, "Cake", BigDecimal.valueOf(3.99), Rating.FIVE_STARS, LocalDate.now().plusDays(2));
+        pm.changeLocale("pl-PL");
+        pm.createProduct(101, "Tea", BigDecimal.valueOf(1.99), Rating.NOT__RATED);
+//        pm.printProductReport(101);
 
-        System.out.println(p2);
-        System.out.println(p3);
+        pm.reviewProduct(101, Rating.FOUR_STARS, "My favourites tea in this place");
+        pm.reviewProduct(101, Rating.THREE_STARS, "It's ok but I drink some better tea");
+        pm.reviewProduct(101, Rating.TWO_STARS, "It's not a hot tea!");
+        pm.reviewProduct(101, Rating.FIVE_STARS, "The best tea whenever you drink");
+        pm.reviewProduct(101, Rating.THREE_STARS, "Just add some lemon");
+        pm.reviewProduct(101, Rating.FOUR_STARS, "Fine tea");
 
-        Product p4 = pm.createProduct(105, "Cookie", BigDecimal.valueOf(3.99), Rating.TWO_STARS, LocalDate.now());
-        System.out.println(p4);
+//        pm.printProductReport(101);
 
-        Product p5 = p3.applyRating(Rating.THREE_STARS);
-        System.out.println(p5);
+        pm.changeLocale("en-GB");
 
-        Product p8 = p4.applyRating(Rating.TWO_STARS);
-        Product p9 = p1.applyRating(Rating.TWO_STARS);
-        System.out.println(p8);
-        System.out.println(p9);
+        pm.createProduct(102, "Coffee", BigDecimal.valueOf(1.99), Rating.NOT__RATED);
+        pm.reviewProduct(102, Rating.THREE_STARS, "It was without milk");
+        pm.reviewProduct(102, Rating.FIVE_STARS, "Ideal mix for me and this biscuit...");
+        pm.reviewProduct(102, Rating.TWO_STARS, "Drink only with half a cup of sugar");
 
-        Product p6 = pm.createProduct(104, "Chocolate", BigDecimal.valueOf(2.99), Rating.FIVE_STARS);
-        Product p7 = pm.createProduct(104, "Chocolate", BigDecimal.valueOf(2.99), Rating.FIVE_STARS, LocalDate.now().plusDays(2));
-        System.out.println(p6.equals(p7));
+//        pm.printProductReport(102);
 
-        System.out.println(p3.getBestBefore());
-        System.out.println(p1.getBestBefore());
+        pm.changeLocale("ru-RU");
+
+        pm.createProduct(103, "Cake", BigDecimal.valueOf(3.99), Rating.NOT__RATED);
+        pm.reviewProduct(103, Rating.THREE_STARS, "Too much cream");
+        pm.reviewProduct(103, Rating.FIVE_STARS, "This strawberry is so cute");
+        pm.reviewProduct(103, Rating.TWO_STARS, "It's awful");
+        pm.reviewProduct(103, Rating.ONE_STAR, "I don't get it!");
+
+//        pm.printProductReport(103);
+
+        pm.printProducts(ratingSorter.thenComparing(priceSorter).reversed());
     }
 }

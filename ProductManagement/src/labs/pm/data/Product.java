@@ -44,6 +44,7 @@ public abstract class Product implements Rateable<Product> {
         this.rating = rating;
     }
 
+    @Override
     public Rating getRating() {
         return rating;
     }
@@ -100,7 +101,7 @@ public abstract class Product implements Rateable<Product> {
 
         if (obj instanceof Product) {
             final Product other = (Product) obj;
-            return this.id == other.id && Objects.equals(this.name, other.name);
+            return this.id == other.id;
         }
         return false;
     }
@@ -114,16 +115,6 @@ public abstract class Product implements Rateable<Product> {
     public BigDecimal getDiscount () {
         return price.multiply(DISCOUNT_RATE).setScale(2, RoundingMode.HALF_UP);
     }
-
-
-    /**
-     * Product are immutable so by this method
-     * we can change the {@link #rating}
-     * @param newRating value of enum {@link Rating}
-     * @return {@link Product} with new rating
-     */
-    public abstract Product applyRating (Rating newRating);
-
 
     /**
      * Assumes that the best before date is today
