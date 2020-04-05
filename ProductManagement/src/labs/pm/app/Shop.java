@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 import java.util.Comparator;
 import java.util.Locale;
 
-//TODO: slajd 202, lekcja 11
+//TODO: slajd 211, lekcja 12
 
 /**
  *
@@ -31,7 +31,7 @@ public class Shop {
 
         pm.changeLocale("pl-PL");
         pm.createProduct(101, "Tea", BigDecimal.valueOf(1.99), Rating.NOT__RATED);
-//        pm.printProductReport(101);
+        pm.printProductReport(101);
 
         pm.reviewProduct(101, Rating.FOUR_STARS, "My favourites tea in this place");
         pm.reviewProduct(101, Rating.THREE_STARS, "It's ok but I drink some better tea");
@@ -40,7 +40,7 @@ public class Shop {
         pm.reviewProduct(101, Rating.THREE_STARS, "Just add some lemon");
         pm.reviewProduct(101, Rating.FOUR_STARS, "Fine tea");
 
-//        pm.printProductReport(101);
+        pm.printProductReport(101);
 
         pm.changeLocale("en-GB");
 
@@ -49,7 +49,7 @@ public class Shop {
         pm.reviewProduct(102, Rating.FIVE_STARS, "Ideal mix for me and this biscuit...");
         pm.reviewProduct(102, Rating.TWO_STARS, "Drink only with half a cup of sugar");
 
-//        pm.printProductReport(102);
+        pm.printProductReport(102);
 
         pm.changeLocale("ru-RU");
 
@@ -59,8 +59,8 @@ public class Shop {
         pm.reviewProduct(103, Rating.TWO_STARS, "It's awful");
         pm.reviewProduct(103, Rating.ONE_STAR, "I don't get it!");
 
-//        pm.printProductReport(103);
+        pm.printProductReport(103);
 
-        pm.printProducts(ratingSorter.thenComparing(priceSorter).reversed());
+        pm.printProducts(p -> p.getPrice().floatValue() < 2, ratingSorter);
     }
 }
