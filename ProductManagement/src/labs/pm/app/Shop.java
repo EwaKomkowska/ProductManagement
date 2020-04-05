@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 import java.util.Comparator;
 import java.util.Locale;
 
-//TODO: slajd 211, lekcja 12
+//TODO: slajd 239, lekcja 13
 
 /**
  *
@@ -61,6 +61,15 @@ public class Shop {
 
         pm.printProductReport(103);
 
+//        pm.printProductReport(104);
+//        pm.printProductReport(105);
         pm.printProducts(p -> p.getPrice().floatValue() < 2, ratingSorter);
+        pm.getDiscounts().forEach((rating, discount) -> System.out.println(rating +'\t' + discount));
+
+        pm.parseReview("101, 4, Nice hot cup of tea");
+        pm.printProductReport(101);
+
+        pm.parseProduct("F, 103, Cake, 3.99, 0, 2019-09-49");
+        pm.printProductReport(101);
     }
 }
