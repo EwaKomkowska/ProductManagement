@@ -1,9 +1,10 @@
 package labs.pm.data;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.time.LocalDate;
-import java.util.Objects;
+
 
 /**
  *{@code Product} class represents properties and behaviours of
@@ -15,7 +16,7 @@ import java.util.Objects;
  * @version 1.0
  * @author Ewa
  */
-public abstract class Product implements Rateable<Product> {
+public abstract class Product implements Rateable<Product>, Serializable {
     /**
      * Properties:
      * id - unique int value for ALL products

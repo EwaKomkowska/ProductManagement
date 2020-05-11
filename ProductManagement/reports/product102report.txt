@@ -1,0 +1,4 @@
+Name: Coffee, Price: £1.99, Rating: ★★★☆☆, Best Before: 11/05/2020 
+Review: ★★★★★ 	Ideal mix for me and this biscuit... 
+Review: ★★★☆☆ 	It was without milk 
+Review: ★★☆☆☆ 	Drink only with half a cup of sugar 

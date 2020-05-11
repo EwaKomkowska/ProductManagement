@@ -1,0 +1,7 @@
+Name: Cake, Price: £3.99, Rating: ★★★★☆, Best Before: 09/09/2019 
+Review: ★★★★★ 	The best tea whenever you drink 
+Review: ★★★★☆ 	My favourites tea in this place 
+Review: ★★★★☆ 	Fine tea 
+Review: ★★★☆☆ 	It's ok but I drink some better tea 
+Review: ★★★☆☆ 	Just add some lemon 
+Review: ★★☆☆☆ 	It's not a hot tea! 
