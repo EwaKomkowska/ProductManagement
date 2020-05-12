@@ -3,10 +3,10 @@ package labs.pm.data;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-public final class Food extends Product {    //prevent being extended
+public final class Food extends Product {
     private LocalDate bestBefore;
 
-    Food (int id, String name, BigDecimal price, Rating rating, LocalDate bestBefore) {         //visible only to members of the same package
+    Food (int id, String name, BigDecimal price, Rating rating, LocalDate bestBefore) {
         super(id, name, price, rating);
         this.bestBefore = bestBefore;
     }

@@ -35,10 +35,10 @@ public abstract class Product implements Rateable<Product>, Serializable {
      * <br>
      *     Discount rate is 10%
      */
-    public static final BigDecimal DISCOUNT_RATE = BigDecimal.valueOf(0.1);        //Java name convention to constant
+    public static final BigDecimal DISCOUNT_RATE = BigDecimal.valueOf(0.1);
 
 
-    Product (int id, String name, BigDecimal price, Rating rating) {            //visible only in this package
+    Product (int id, String name, BigDecimal price, Rating rating) {
         this.id = id;
         this.name = name;
         this.price = price;

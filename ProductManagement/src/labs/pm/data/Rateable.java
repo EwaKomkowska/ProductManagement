@@ -1,7 +1,7 @@
 package labs.pm.data;
 
-@FunctionalInterface            //only one abstract method - can be use in lambda
-public interface Rateable <T> {         //interface -> generic future applicable, can be implemented by other classes in new project in the future
+@FunctionalInterface
+public interface Rateable <T> {
     public static final Rating DEFAULT_RATING = Rating.NOT__RATED;
 
     public abstract T applyRating(Rating rating);

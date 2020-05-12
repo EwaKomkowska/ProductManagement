@@ -1,2 +1,2 @@
-Name: Cake, Price: ￥3.99, Rating: ★★★★☆, Best Before: 2019/9/9 
+Name: Cake, Price: 3,99 zł, Rating: ★★★★☆, Best Before: 09.09.2019 
 Review: ★★★★☆ 	Yet another review 

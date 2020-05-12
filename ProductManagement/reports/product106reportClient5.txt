@@ -1,4 +1,4 @@
-Name: Tea, Price: $1.99, Rating: ★★★★☆, Best Before: 5/11/20 
+Name: Tea, Price: £1.99, Rating: ★★★★☆, Best Before: 12/05/2020 
 Review: ★★★★☆ 	Yet another review 
-Review: ★★★★☆ 	Yet another review 
+ew: ★★★★☆ 	Yet another review 
 Review: ★★★★☆ 	Yet another review 

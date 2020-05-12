@@ -1,3 +1,3 @@
-module labs.pm {
+module ProductManagement {
     requires java.logging;
 }
